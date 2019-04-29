@@ -6,6 +6,17 @@ body {
     padding-top: 40px;
 }
 
+.wall-list {
+	font-size: 1.2em;
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.wall-list {
+	font-size: 1.2em;
+}
+
 pre {
 	background: #f7f7f9
 }
@@ -298,3 +309,5 @@ pre {
 		text-align: center
 	}
 }
+
+

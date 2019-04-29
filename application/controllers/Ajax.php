@@ -34,4 +34,38 @@ class Ajax extends CI_Controller {
 
 		echo json_encode($data);
     }
+
+
+    public function save()
+    {
+        header('Content-Type: application/json; charset=utf-8');
+        
+        $id = $this->input->post('id');
+		$content = $this->input->post('content');
+
+        $this->load->model('wall_model');
+        
+        if ($this->wall_model->update_wall_name($id, $content))
+        {
+            $data = array(
+                'action' => 'save',
+                'status' => 'success',
+                'id' => $id,
+                'deleted_rows' => $this->db->affected_rows(),
+                'sql' => $this->db->last_query()
+            );
+        } else {
+            $data = array(
+                'action' => 'save',
+                'status' => 'fail',
+                'id' => $id,
+                'deleted_rows' => $this->db->affected_rows(),
+                'sql' => $this->db->last_query()
+            );
+        }
+
+
+
+		echo json_encode($data);
+    }
 }

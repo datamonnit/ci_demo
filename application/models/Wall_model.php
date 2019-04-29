@@ -24,4 +24,17 @@ class Wall_model extends CI_Model {
         return $this->db->affected_rows();
     }
 
+    // Save wall name by id and return number of deleted walls
+    public function update_wall_name($id, $name)
+    {
+        $data = array(
+            'nimi' => $name
+        );
+    
+        $this->db->where('id', $id);
+        $this->db->update('seinat', $data);
+        
+        return $this->db->affected_rows();
+}
+
 }
